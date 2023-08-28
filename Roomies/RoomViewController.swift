@@ -69,17 +69,17 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //            vc!.modalPresentationStyle = .overFullScreen
 //            present(vc!, animated: true)
         }else if indexPath.row == 3{
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(identifier:"billsView")as? BillsViewController
-//            vc?.rn = self.roomNum
-//            vc!.modalPresentationStyle = .overFullScreen
-//            present(vc!, animated: true)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier:"billsView")as? BillsViewController
+            vc?.rn = self.roomNum
+            vc!.modalPresentationStyle = .overFullScreen
+            present(vc!, animated: true)
         }else if indexPath.row == 4{
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(identifier:"rentView")as? RentViewController
-//            vc?.rn = self.roomNum
-//            vc!.modalPresentationStyle = .overFullScreen
-//            present(vc!, animated: true)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier:"rentView")as? RentViewController
+            vc?.rn = self.roomNum
+            vc!.modalPresentationStyle = .overFullScreen
+            present(vc!, animated: true)
         }
     }
     

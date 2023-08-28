@@ -17,6 +17,7 @@ class Event
     
     func eventsForDate(date: Date) -> [Event]
     {
+        
         var daysEvents = [Event]()
         for event in eventsList
         {

@@ -41,23 +41,23 @@ class GarbageViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     
     func setWeekView()
+    {
+        totalSquares.removeAll()
+        
+        var current = CalendarHelper().sundayForDate(date: selectedDate)
+        let nextSunday = CalendarHelper().addDays(date: current, days: 7)
+        
+        while (current < nextSunday)
         {
-            totalSquares.removeAll()
-            
-            var current = CalendarHelper().sundayForDate(date: selectedDate)
-            let nextSunday = CalendarHelper().addDays(date: current, days: 7)
-            
-            while (current < nextSunday)
-            {
-                totalSquares.append(current)
-                current = CalendarHelper().addDays(date: current, days: 1)
-            }
-            
-            monthLabel.text = CalendarHelper().monthString(date: selectedDate)
-                + " " + CalendarHelper().yearString(date: selectedDate)
-            collView.reloadData()
-            tableView.reloadData()
+            totalSquares.append(current)
+            current = CalendarHelper().addDays(date: current, days: 1)
         }
+        
+        monthLabel.text = CalendarHelper().monthString(date: selectedDate)
+            + " " + CalendarHelper().yearString(date: selectedDate)
+        collView.reloadData()
+        tableView.reloadData()
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         totalSquares.count
@@ -66,31 +66,31 @@ class GarbageViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calCell", for: indexPath) as! CalendarCell
                 
-                let date = totalSquares[indexPath.item]
-                cell.dayOfMonth.text = String(CalendarHelper().dayOfMonth(date: date))
-                
-                if(date == selectedDate)
-                {
-                    cell.backgroundColor = UIColor.systemBlue
-                }
-                else
-                {
-                    cell.backgroundColor = UIColor.white
-                }
-                
-                return cell
+            let date = totalSquares[indexPath.item]
+            cell.dayOfMonth.text = String(CalendarHelper().dayOfMonth(date: date))
+            
+            if(date == selectedDate)
+            {
+                cell.backgroundColor = UIColor.systemBlue
+            }
+            else
+            {
+                cell.backgroundColor = UIColor.white
+            }
+            
+            return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
-        {
-            selectedDate = totalSquares[indexPath.item]
-            collectionView.reloadData()
-            tableView.reloadData()
-        }
+    {
+        selectedDate = totalSquares[indexPath.item]
+        collectionView.reloadData()
+        tableView.reloadData()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return Event().eventsForDate(date: selectedDate).count
-        }
+        return Event().eventsForDate(date: selectedDate).count
+    }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID") as! EventCell
@@ -146,8 +146,8 @@ class GarbageViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     override func viewDidAppear(_ animated: Bool)
-        {
-            super.viewDidAppear(animated)
-            tableView.reloadData()
-        }
+    {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
 }

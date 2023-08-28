@@ -29,6 +29,10 @@
 		50613C642A957446001D2C66 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50613C632A957446001D2C66 /* CalendarCell.swift */; };
 		50634FDF2A9B7DD200DC6A11 /* CleaningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50634FDE2A9B7DD200DC6A11 /* CleaningViewController.swift */; };
 		50634FE42A9B7DEA00DC6A11 /* AddCleaningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50634FE32A9B7DEA00DC6A11 /* AddCleaningViewController.swift */; };
+		50634FE92A9BBA2600DC6A11 /* RentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50634FE82A9BBA2600DC6A11 /* RentViewController.swift */; };
+		506350082A9C1CC300DC6A11 /* YearlyCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506350072A9C1CC300DC6A11 /* YearlyCalendarCell.swift */; };
+		5063500D2A9CB1FD00DC6A11 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063500C2A9CB1FD00DC6A11 /* Payment.swift */; };
+		506350482A9CD2A700DC6A11 /* BillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506350472A9CD2A700DC6A11 /* BillsViewController.swift */; };
 		506371A12A97A2A7000DF759 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506371A02A97A2A7000DF759 /* AddEventViewController.swift */; };
 		506371A62A97A2C2000DF759 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506371A52A97A2C2000DF759 /* EventCell.swift */; };
 		506371AB2A98308C000DF759 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506371AA2A98308C000DF759 /* Event.swift */; };
@@ -86,6 +90,10 @@
 		50613C632A957446001D2C66 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		50634FDE2A9B7DD200DC6A11 /* CleaningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningViewController.swift; sourceTree = "<group>"; };
 		50634FE32A9B7DEA00DC6A11 /* AddCleaningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCleaningViewController.swift; sourceTree = "<group>"; };
+		50634FE82A9BBA2600DC6A11 /* RentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentViewController.swift; sourceTree = "<group>"; };
+		506350072A9C1CC300DC6A11 /* YearlyCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearlyCalendarCell.swift; sourceTree = "<group>"; };
+		5063500C2A9CB1FD00DC6A11 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		506350472A9CD2A700DC6A11 /* BillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsViewController.swift; sourceTree = "<group>"; };
 		506371A02A97A2A7000DF759 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		506371A52A97A2C2000DF759 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		506371AA2A98308C000DF759 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -170,6 +178,8 @@
 				502224F22A7177210050AB1C /* AppDelegate.swift */,
 				502224F42A7177210050AB1C /* SceneDelegate.swift */,
 				502224F82A7177210050AB1C /* Main.storyboard */,
+				50634FE82A9BBA2600DC6A11 /* RentViewController.swift */,
+				506350472A9CD2A700DC6A11 /* BillsViewController.swift */,
 				50634FDE2A9B7DD200DC6A11 /* CleaningViewController.swift */,
 				50634FE32A9B7DEA00DC6A11 /* AddCleaningViewController.swift */,
 				506371A02A97A2A7000DF759 /* AddEventViewController.swift */,
@@ -185,7 +195,9 @@
 				505ED9442A82E8100079BAD0 /* GoogleService-Info.plist */,
 				506F3F882A8BBF5100B1B884 /* RoomViewController.swift */,
 				50613C4C2A955D17001D2C66 /* GarbageViewController.swift */,
+				506350072A9C1CC300DC6A11 /* YearlyCalendarCell.swift */,
 				506371AA2A98308C000DF759 /* Event.swift */,
+				5063500C2A9CB1FD00DC6A11 /* Payment.swift */,
 				506002C02A966A3B00A3D6A5 /* CalendarHelper.swift */,
 				5067CEED2A8D0B30006A5CEA /* RoomTableViewCell.swift */,
 				5059C6592A8ECD6D00D47FFD /* rent.png */,
@@ -472,8 +484,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5067CEEE2A8D0B30006A5CEA /* RoomTableViewCell.swift in Sources */,
+				5063500D2A9CB1FD00DC6A11 /* Payment.swift in Sources */,
 				505D33682A7FF2FA002C6D9F /* LoginViewController.swift in Sources */,
+				506350482A9CD2A700DC6A11 /* BillsViewController.swift in Sources */,
 				502224F32A7177210050AB1C /* AppDelegate.swift in Sources */,
+				506350082A9C1CC300DC6A11 /* YearlyCalendarCell.swift in Sources */,
 				50596AEE2A818E4900A597F1 /* SignUpViewController.swift in Sources */,
 				506371A62A97A2C2000DF759 /* EventCell.swift in Sources */,
 				50613C642A957446001D2C66 /* CalendarCell.swift in Sources */,
@@ -484,6 +499,7 @@
 				50613C4D2A955D17001D2C66 /* GarbageViewController.swift in Sources */,
 				502224F52A7177210050AB1C /* SceneDelegate.swift in Sources */,
 				506371AB2A98308C000DF759 /* Event.swift in Sources */,
+				50634FE92A9BBA2600DC6A11 /* RentViewController.swift in Sources */,
 				50634FE42A9B7DEA00DC6A11 /* AddCleaningViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
