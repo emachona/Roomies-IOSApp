@@ -11,7 +11,7 @@ import FirebaseDatabase
 class RentViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
    
     public var rn = ""
-    private let ref = Database.database().reference().child("rooms")
+    private let ref = Database.database().reference()
     var roomId = ""
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var collView: UICollectionView!
@@ -67,7 +67,7 @@ class RentViewController: UIViewController, UICollectionViewDelegate, UICollecti
        }
     
     func getRoomData(){
-        let query = ref.queryOrderedByKey().queryEqual(toValue: self.roomId)
+        let query = ref.child("rooms").queryOrderedByKey().queryEqual(toValue: self.roomId)
         query.observeSingleEvent(of: .value) { snapshot in
             guard let roomData = snapshot.value as? [String: [String: Any]],
                   let roomID = roomData.keys.first,
@@ -91,6 +91,18 @@ class RentViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 }
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddPaymentSegue" {
+            if let destinationVC = segue.destination as? AddPaymentViewController {
+                destinationVC.roomId = self.roomId
+            }
+        }
+    }
+    
+    @IBAction func toAddRent(_ sender: Any) {
+        performSegue(withIdentifier: "toAddPaymentSegue", sender: self)
     }
     
     @IBAction func prevYear(_ sender: Any) {

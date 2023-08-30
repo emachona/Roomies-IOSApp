@@ -12,7 +12,7 @@ class BillsViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     public var rn = ""
     var year = Calendar.current.component(.year, from: Date())
-    private let ref = Database.database().reference().child("rooms")
+    private let ref = Database.database().reference()
     var roomId = ""
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var collView: UICollectionView!
@@ -63,7 +63,7 @@ class BillsViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func getRoomData(){
-        let query = ref.queryOrderedByKey().queryEqual(toValue: self.roomId)
+        let query = ref.child("rooms").queryOrderedByKey().queryEqual(toValue: self.roomId)
         query.observeSingleEvent(of: .value) { snapshot in
             guard let roomData = snapshot.value as? [String: [String: Any]],
                   let roomID = roomData.keys.first,
@@ -87,6 +87,18 @@ class BillsViewController: UIViewController, UICollectionViewDelegate, UICollect
                 }
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddBillsSegue" {
+            if let destinationVC = segue.destination as? AddBillsViewController {
+                destinationVC.roomId = self.roomId
+            }
+        }
+    }
+    
+    @IBAction func toAddBills(_ sender: Any) {
+        performSegue(withIdentifier: "toAddBillsSegue", sender: self)
     }
     
     @IBAction func prevYear(_ sender: Any) {

@@ -9,6 +9,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
+//var roomnum = ""
+
 class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var vcTitle: UINavigationItem!
@@ -63,11 +65,11 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
             vc!.modalPresentationStyle = .overFullScreen
             present(vc!, animated: true)
         }else if indexPath.row == 2{
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(identifier:"groceriesView")as? GroceriesViewController
-//            vc?.rn = self.roomNum
-//            vc!.modalPresentationStyle = .overFullScreen
-//            present(vc!, animated: true)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier:"groceriesView")as? GroceriesViewController
+            vc?.rn = self.roomNum
+            vc!.modalPresentationStyle = .overFullScreen
+            present(vc!, animated: true)
         }else if indexPath.row == 3{
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(identifier:"billsView")as? BillsViewController
@@ -94,6 +96,7 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             
                             self.roomNum = (userData["roomNumber"] as? String)!
                             self.vcTitle.title = "Room Number " + self.roomNum
+                            print ("Room Number: \(self.roomNum)")
                         }
                     }
                 }
@@ -104,11 +107,9 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     override func viewDidLoad() {
-        getData()
-        print ("Room Number: \(self.roomNum)")
-        
         super.viewDidLoad()
-        
+        getData()
+        //roomnum = self.roomNum
         self.tableview.dataSource = self
         self.tableview.delegate = self
     }
@@ -120,5 +121,4 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
     }
-    //getRoomData - od roomNumber zema podatoci za sobata
 }

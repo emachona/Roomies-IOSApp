@@ -14,15 +14,15 @@ class AddCleaningViewController: UIViewController {
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     private let ref = Database.database().reference()
-    var roomId = "room\(roomnum)"
+    //var roomnum = ""
+    var roomId = ""
     let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       // roomId = "room\(self.roomnum)"
         dateFormatter.dateFormat = "dd/MM/YY"
         datePicker.date = selectedDate
-        print(roomnum)
     }
 
     func addToDatabase(event: Event){
@@ -41,7 +41,7 @@ class AddCleaningViewController: UIViewController {
                    room["cleaningPlan"] = [newCleaningPlanEntry]
                }
             
-            self.ref.child("rooms").child("room"+roomnum).setValue(room) { error, _ in
+            self.ref.child("rooms").child(self.roomId).setValue(room) { error, _ in
                 if let error = error {
                     print("Error updating room data: \(error)")
                 } else {

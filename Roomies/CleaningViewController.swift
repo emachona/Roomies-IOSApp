@@ -9,7 +9,7 @@ import UIKit
 import FirebaseDatabase
 
 var selectedDateCleaning = Date()
-var roomnumCleaning = ""
+//var roomnumCleaning = ""
 
 class CleaningViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource{
     
@@ -25,10 +25,8 @@ class CleaningViewController: UIViewController,  UITableViewDelegate, UITableVie
         super.viewDidLoad()
         setCellsView()
         setWeekView()
-        roomnumCleaning = self.rn
         roomId = "room\(self.rn)"
         getRoomData()
-        print (roomnumCleaning)
     }
     
     override func viewDidAppear(_ animated: Bool){
@@ -140,6 +138,18 @@ class CleaningViewController: UIViewController,  UITableViewDelegate, UITableVie
     @IBAction func nextWeek(_ sender: Any) {
         selectedDateCleaning = CalendarHelper().addDays(date: selectedDateCleaning, days: 7)
         setWeekView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddCleaningSegue" {
+            if let destinationVC = segue.destination as? AddCleaningViewController {
+                destinationVC.roomId = self.roomId
+            }
+        }
+    }
+    
+    @IBAction func toAddCleaning(_ sender: Any) {
+        performSegue(withIdentifier: "toAddCleaningSegue", sender: self)
     }
     
     @IBAction func goBack(_ sender: Any) {

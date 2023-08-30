@@ -24,6 +24,11 @@
 		505D335D2A7FEE42002C6D9F /* roomiesLogin.png in Resources */ = {isa = PBXBuildFile; fileRef = 505D335C2A7FEE42002C6D9F /* roomiesLogin.png */; };
 		505D33682A7FF2FA002C6D9F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505D33672A7FF2FA002C6D9F /* LoginViewController.swift */; };
 		505ED9452A82E8110079BAD0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 505ED9442A82E8100079BAD0 /* GoogleService-Info.plist */; };
+		505FFD5A2A9E2E7600E252E6 /* AddPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505FFD592A9E2E7600E252E6 /* AddPaymentViewController.swift */; };
+		505FFD5F2A9E34EB00E252E6 /* AddBillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505FFD5E2A9E34EB00E252E6 /* AddBillsViewController.swift */; };
+		505FFD642A9E36D600E252E6 /* GroceriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505FFD632A9E36D600E252E6 /* GroceriesViewController.swift */; };
+		505FFD692A9E387400E252E6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505FFD682A9E387400E252E6 /* Item.swift */; };
+		505FFD6E2A9E38FC00E252E6 /* AddItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505FFD6D2A9E38FC00E252E6 /* AddItemsViewController.swift */; };
 		506002C12A966A3B00A3D6A5 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506002C02A966A3B00A3D6A5 /* CalendarHelper.swift */; };
 		50613C4D2A955D17001D2C66 /* GarbageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50613C4C2A955D17001D2C66 /* GarbageViewController.swift */; };
 		50613C642A957446001D2C66 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50613C632A957446001D2C66 /* CalendarCell.swift */; };
@@ -85,6 +90,11 @@
 		505D335C2A7FEE42002C6D9F /* roomiesLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = roomiesLogin.png; path = ../../../Downloads/roomiesLogin.png; sourceTree = "<group>"; };
 		505D33672A7FF2FA002C6D9F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		505ED9442A82E8100079BAD0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		505FFD592A9E2E7600E252E6 /* AddPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentViewController.swift; sourceTree = "<group>"; };
+		505FFD5E2A9E34EB00E252E6 /* AddBillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillsViewController.swift; sourceTree = "<group>"; };
+		505FFD632A9E36D600E252E6 /* GroceriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesViewController.swift; sourceTree = "<group>"; };
+		505FFD682A9E387400E252E6 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		505FFD6D2A9E38FC00E252E6 /* AddItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemsViewController.swift; sourceTree = "<group>"; };
 		506002C02A966A3B00A3D6A5 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		50613C4C2A955D17001D2C66 /* GarbageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarbageViewController.swift; sourceTree = "<group>"; };
 		50613C632A957446001D2C66 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
@@ -178,6 +188,11 @@
 				502224F22A7177210050AB1C /* AppDelegate.swift */,
 				502224F42A7177210050AB1C /* SceneDelegate.swift */,
 				502224F82A7177210050AB1C /* Main.storyboard */,
+				505FFD632A9E36D600E252E6 /* GroceriesViewController.swift */,
+				505FFD682A9E387400E252E6 /* Item.swift */,
+				505FFD6D2A9E38FC00E252E6 /* AddItemsViewController.swift */,
+				505FFD592A9E2E7600E252E6 /* AddPaymentViewController.swift */,
+				505FFD5E2A9E34EB00E252E6 /* AddBillsViewController.swift */,
 				50634FE82A9BBA2600DC6A11 /* RentViewController.swift */,
 				506350472A9CD2A700DC6A11 /* BillsViewController.swift */,
 				50634FDE2A9B7DD200DC6A11 /* CleaningViewController.swift */,
@@ -488,14 +503,19 @@
 				505D33682A7FF2FA002C6D9F /* LoginViewController.swift in Sources */,
 				506350482A9CD2A700DC6A11 /* BillsViewController.swift in Sources */,
 				502224F32A7177210050AB1C /* AppDelegate.swift in Sources */,
+				505FFD5F2A9E34EB00E252E6 /* AddBillsViewController.swift in Sources */,
+				505FFD692A9E387400E252E6 /* Item.swift in Sources */,
 				506350082A9C1CC300DC6A11 /* YearlyCalendarCell.swift in Sources */,
 				50596AEE2A818E4900A597F1 /* SignUpViewController.swift in Sources */,
 				506371A62A97A2C2000DF759 /* EventCell.swift in Sources */,
 				50613C642A957446001D2C66 /* CalendarCell.swift in Sources */,
+				505FFD6E2A9E38FC00E252E6 /* AddItemsViewController.swift in Sources */,
 				506002C12A966A3B00A3D6A5 /* CalendarHelper.swift in Sources */,
 				506F3F892A8BBF5100B1B884 /* RoomViewController.swift in Sources */,
+				505FFD5A2A9E2E7600E252E6 /* AddPaymentViewController.swift in Sources */,
 				50634FDF2A9B7DD200DC6A11 /* CleaningViewController.swift in Sources */,
 				506371A12A97A2A7000DF759 /* AddEventViewController.swift in Sources */,
+				505FFD642A9E36D600E252E6 /* GroceriesViewController.swift in Sources */,
 				50613C4D2A955D17001D2C66 /* GarbageViewController.swift in Sources */,
 				502224F52A7177210050AB1C /* SceneDelegate.swift in Sources */,
 				506371AB2A98308C000DF759 /* Event.swift in Sources */,

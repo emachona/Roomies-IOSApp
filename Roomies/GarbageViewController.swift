@@ -9,7 +9,7 @@ import UIKit
 import FirebaseDatabase
 
 var selectedDate = Date()
-var roomnum = ""
+//var roomnum = ""
 
 class GarbageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
@@ -25,10 +25,9 @@ class GarbageViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewDidLoad()
         setCellsView()
         setWeekView()
-        roomnum = self.rn
+        //roomnum = self.rn
         roomId = "room\(self.rn)"
         getRoomData()
-        print (roomnum)
     }
     
     func setCellsView()
@@ -139,6 +138,17 @@ class GarbageViewController: UIViewController, UICollectionViewDelegate, UIColle
         setWeekView()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddEventSegue" {
+            if let destinationVC = segue.destination as? AddEventViewController {
+                destinationVC.roomId = self.roomId
+            }
+        }
+    }
+    
+    @IBAction func toAddEvent(_ sender: Any) {
+        performSegue(withIdentifier: "toAddEventSegue", sender: self)
+    }
     
     @IBAction func goBack(_ sender: Any) {
         eventsList = []

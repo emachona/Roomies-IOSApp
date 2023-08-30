@@ -13,7 +13,8 @@ class AddEventViewController: UIViewController {
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     private let ref = Database.database().reference()
-    var roomId = "room\(roomnum)"
+   // var roomnum = ""
+    var roomId = ""
     let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
@@ -21,7 +22,7 @@ class AddEventViewController: UIViewController {
 
         dateFormatter.dateFormat = "dd/MM/YY"
         datePicker.date = selectedDate
-        print(roomnum)
+       // roomId = "room\(self.roomnum)"
     }
     
     func addToDatabase(event: Event){
@@ -40,7 +41,7 @@ class AddEventViewController: UIViewController {
                    room["garbagePlan"] = [newGarbagePlanEntry]
                }
             
-            self.ref.child("rooms").child("room"+roomnum).setValue(room) { error, _ in
+            self.ref.child("rooms").child(self.roomId).setValue(room) { error, _ in
                 if let error = error {
                     print("Error updating room data: \(error)")
                 } else {
