@@ -165,6 +165,11 @@
                                 <action selector="signOutPressed:" destination="bhe-rt-U3d" id="0Z6-Da-NIx"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="zym-nM-hTL">
+                            <connections>
+                                <action selector="infoRoom:" destination="bhe-rt-U3d" id="adL-vi-Rub"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableview" destination="hex-TE-CZK" id="Jeb-DV-Gxe"/>
@@ -1588,6 +1593,7 @@
     <resources>
         <image name="arrowshape.turn.up.left.circle" catalog="system" width="128" height="121"/>
         <image name="arrowshape.turn.up.right.circle" catalog="system" width="128" height="121"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="roomiesLogin.png" width="559.5" height="313.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

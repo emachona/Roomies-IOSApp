@@ -18,6 +18,7 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
     private let ref = Database.database().reference()
     let currentUserID : String = (Auth.auth().currentUser?.uid)!
     var roomNum = ""
+    var listOfNames = [String]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -105,13 +106,45 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
     }
+    
+    func getRoomData(completion: @escaping ([String]) -> Void) {
+        let query = ref.child("rooms").queryOrderedByKey().queryEqual(toValue: "room\(roomNum)")
+        query.observeSingleEvent(of: .value) { snapshot in
+            guard let roomData = snapshot.value as? [String: [String: Any]],
+                  let roomID = roomData.keys.first,
+                  let room = roomData[roomID] else {
+                print("Room not found")
+                completion([]) // Call completion with an empty list if room not found
+                return
+            }
+            if let tenants = room["tenants"] as? [String] {
+                completion(tenants) // Call completion with the populated list
+            } else {
+                completion([]) // Call completion with an empty list if tenants not found
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(titleTapped))
+//        vcTitle.titleView?.addGestureRecognizer(tapGesture)
         //roomnum = self.roomNum
         self.tableview.dataSource = self
         self.tableview.delegate = self
+    }
+    
+    @IBAction func infoRoom(_ sender: Any) {
+        getRoomData{listOfNames in
+            let alertController = UIAlertController(title: "Tenants:\n" + listOfNames.joined(separator: "\n"), message: nil, preferredStyle: .alert)
+
+            let cancelAction = UIAlertAction(title: "Close", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+
+            self.present(alertController, animated: true, completion: nil)
+
+        }
     }
     
     @IBAction func signOutPressed(_ sender: Any) {

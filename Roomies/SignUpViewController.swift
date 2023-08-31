@@ -68,13 +68,39 @@ class SignUpViewController: UIViewController {
                 self.database.child("users").child(userID).setValue(object)
                 print("Object written!")
                 
-//                    let req = Auth.auth().currentUser?.createProfileChangeRequest();
-//                    req?.displayName = self.roomNumTF.text
-//                    req?.commitChanges(completion: nil)
+                let roomId = "room" + self.roomNumTF.text!
+                self.addToTenants(room:roomId, name: self.nameTF.text!)
+                
                 self.performSegue(withIdentifier: "signupSegue", sender: nil)
                 
             }
 
+        }
+    }
+    
+    func addToTenants(room: String, name: String){
+        let query = database.child("rooms").queryOrderedByKey().queryEqual(toValue: room)
+        query.observeSingleEvent(of: .value) { snapshot in
+            guard let roomData = snapshot.value as? [String: [String: Any]],
+                  let roomID = roomData.keys.first,
+                  var myRoom = roomData[roomID] else {
+            print("Room not found")
+            return }
+            let newTenant = name
+            if var tenants = myRoom["tenants"] as? [String] {
+                   tenants.append(newTenant)
+                   myRoom["tenants"] = tenants
+               } else {
+                   myRoom["tenants"] = [newTenant]
+               }
+            
+            self.database.child("rooms").child(room).setValue(myRoom) { error, _ in
+                if let error = error {
+                    print("Error updating room data: \(error)")
+                } else {
+                    print("Rent payment entry added successfully")
+                }
+            }
         }
     }
 }
