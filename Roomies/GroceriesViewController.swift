@@ -11,7 +11,7 @@ import FirebaseDatabase
 class GroceriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     public var rn = ""
-    private let ref = Database.database().reference().child("rooms")
+    private let ref = Database.database().reference()
     var roomId = ""
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,20 +33,50 @@ class GroceriesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell") as! EventCell
-//        if itemsList[indexPath.row].status != false {
-//            cell.nameLabel.text = itemsList[indexPath.row].product
+//        if itemsList[indexPath.row].status{
+            cell.nameLabel.text = itemsList[indexPath.row].product
 //        }
-        cell.nameLabel.text = itemsList[indexPath.row].product
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        itemsList[indexPath.row].status = false
-        //tableView.reloadData()
+        itemsList[indexPath.row].status.toggle()
+        changeStatusDB(item: itemsList[indexPath.row])
+        itemsList.remove(at: indexPath.row)
+
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
+    func changeStatusDB(item: Item) {
+        let query = ref.child("rooms").queryOrderedByKey().queryEqual(toValue: self.roomId)
+        query.observeSingleEvent(of: .value) { snapshot in
+            guard let roomData = snapshot.value as? [String: [String: Any]],
+                  let roomID = roomData.keys.first,
+                  var room = roomData[roomID] else {
+            print("Room not found - changeStatusDB")
+            return }
+//            print("roomData: \(room)")
+            if var groceries = room["groceries"] as? [[String: Any]] {
+                for (index, entry) in groceries.enumerated() {
+                    if let productName = entry["item"] as? String,
+                       productName == item.product
+                    {
+                        if var status = entry["status"] as? Bool, status == true {
+                            status = false
+                            groceries[index]["status"] = status
+                            room["groceries"] = groceries
+                            self.ref.child("rooms").child(self.roomId).setValue(room)
+                        }
+                        break
+                    }
+                }
+            }
+        }
+        tableView.reloadData()
     }
     
     func getRoomData(){
-        let query = ref.queryOrderedByKey().queryEqual(toValue: self.roomId)
+        let query = ref.child("rooms").queryOrderedByKey().queryEqual(toValue: self.roomId)
         query.observeSingleEvent(of: .value) { snapshot in
             guard let roomData = snapshot.value as? [String: [String: Any]],
                   let roomID = roomData.keys.first,
@@ -57,17 +87,20 @@ class GroceriesViewController: UIViewController, UITableViewDelegate, UITableVie
             if let groceries = room["groceries"] as? [[String: Any]] {
                 for entry in groceries {
                     if let productName = entry["item"] as? String,
-                       let status = entry["status"] as? Bool
+                       let status = entry["status"] as? Bool,
+                       status == true
                     {
                         let item = Item()
                         item.product = productName
                         item.status = status
                         itemsList.append(item)
-                        
                     }
                 }
             }
         }
+//        print(itemsList[0].product!)
+//        print(itemsList[0].status as Any)
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

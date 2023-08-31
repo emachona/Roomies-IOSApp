@@ -914,14 +914,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU0-6l-T9E">
-                                                    <rect key="frame" x="39" y="11" width="36" height="22"/>
+                                                    <rect key="frame" x="39" y="11" width="331" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="OU0-6l-T9E" secondAttribute="trailing" constant="295" id="KVd-M6-xVK"/>
+                                                <constraint firstAttribute="trailing" secondItem="OU0-6l-T9E" secondAttribute="trailing" id="KVd-M6-xVK"/>
                                                 <constraint firstItem="OU0-6l-T9E" firstAttribute="centerY" secondItem="7Mh-aj-prn" secondAttribute="centerY" id="hil-mi-UIS"/>
                                                 <constraint firstItem="OU0-6l-T9E" firstAttribute="leading" secondItem="7Mh-aj-prn" secondAttribute="leading" constant="39" id="nYz-yv-qvs"/>
                                             </constraints>
@@ -931,6 +931,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7ef-Ty-Q1f" id="V9T-4i-Zcq"/>
+                                    <outlet property="delegate" destination="7ef-Ty-Q1f" id="aQm-zJ-noc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pTe-ci-2kO"/>
@@ -1345,17 +1349,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sum" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lC-mB-SIT">
-                                                    <rect key="frame" x="50" y="87" width="36" height="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLJ-yM-z1d">
+                                                    <rect key="frame" x="38" y="30" width="61" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLJ-yM-z1d">
-                                                    <rect key="frame" x="38" y="27" width="61" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sum" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lC-mB-SIT">
+                                                    <rect key="frame" x="20" y="93" width="96" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1393,10 +1397,10 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="J5S-7y-pqI">
-                                        <rect key="frame" x="141.66666666666666" y="145" width="130.99999999999997" height="144"/>
+                                        <rect key="frame" x="141.66666666666666" y="145" width="131" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="v5j-pu-rAq">
-                                            <rect key="frame" x="0.0" y="0.0" width="130.99999999999997" height="144"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="131" height="144"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
@@ -1417,10 +1421,10 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XNc-OT-UC0">
-                                        <rect key="frame" x="141.66666666666666" y="290" width="130.99999999999997" height="144"/>
+                                        <rect key="frame" x="141.66666666666666" y="290" width="131" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CiE-56-lRW">
-                                            <rect key="frame" x="0.0" y="0.0" width="130.99999999999997" height="144"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="131" height="144"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
@@ -1516,7 +1520,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2A-xP-aFA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128" y="1551"/>
+            <point key="canvasLocation" x="127.53623188405798" y="1550.5434782608697"/>
         </scene>
         <!--Add Bills View Controller-->
         <scene sceneID="cxa-7F-fM9">
